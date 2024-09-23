@@ -25,7 +25,7 @@ tmp_dir = os.path.join(PROJECT_DIR, "data", "interim", "tmp")
 
 sys.path.append(PROJECT_DIR)
 
-from src import logging_utils
+# from src import logging_utils
 LOGGER_NAME = "dicom_client"
 
 
@@ -65,7 +65,7 @@ def send_dicom_file(filenames, dest_ae_title, dest_host, dest_port):
 
     """
     # Initialize the DICOM Application Entity
-    logger = logging_utils.get_logger(LOGGER_NAME)
+    # logger = logging_utils.get_logger(LOGGER_NAME)
     my_ae_title = "MY_AE_TITLE"
     ae = AE(ae_title=my_ae_title)
 
@@ -93,19 +93,20 @@ def send_dicom_file(filenames, dest_ae_title, dest_host, dest_port):
 
     if assoc.is_established:
         for filename in filenames:
-            logger.debug(f"Sending {filename}")
+            print(f"Sending {filename}")
             status = assoc.send_c_store(filename)
-            logger.debug(f"{filename} C-STORE status: {status.Status}")
+            print(f"{filename} C-STORE status: {status.Status}")
 
         # Release the association
         assoc.release()
     else:
-        logger.error("Association with PACS failed")
+        print("Association with PACS failed")
+        pass
 
 
 # Main script
 if __name__ == "__main__":
-    logger = logging_utils.configure_logger(loglevel="DEBUG", logger_name=LOGGER_NAME)
+    # logger = logging_utils.configure_logger(loglevel="DEBUG", logger_name=LOGGER_NAME)
     # pynetdicom.debug_logger()
 
     # PACS server details, replace these with your actual PACS server details
@@ -113,7 +114,7 @@ if __name__ == "__main__":
     dest_host = "localhost"
     dest_port = 11112
 
-    image_dir = "/Users/silterra/Projects/Mirai_general/mirai_demo_data"
+    image_dir = "./example_data"
     # image_dir = "/Users/silterra/Projects/Sybil_general/sybil_demo_data"
     # image_dir = "/Users/silterra/Projects/Mirai_general/MountAuburn/OneDrive_2_9-4-2024/RADIANT_BETSY_Original-Study"
     # image_dir = "/Users/silterra/Projects/Mirai_general/MountAuburn/OneDrive_2_9-4-2024/RADIANT_JENNA"

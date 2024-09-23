@@ -1,3 +1,6 @@
 {
-    
-}
+    "Name": "Orthanc DICOM Server",
+    "HttpPort": 8042,
+    "DicomPort": 11112,
+    "DicomAet": "ORTHANC"
+  }

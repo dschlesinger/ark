@@ -9,4 +9,4 @@ requests==2.31.0
 requests-file==1.5.1
 setuptools>=65.5.1
 tqdm==4.62.3
-pydicom==3.0.1
+pydicom== 2.4.4
