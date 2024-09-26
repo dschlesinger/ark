@@ -36,4 +36,4 @@ EXPOSE 5000 8000
 
 ENV LOG_LEVEL="INFO"
 ENV ARK_THREADS=4
-ENTRYPOINT rest-listener
+ENTRYPOINT ["python", "ark/orthanc/rest_listener.py"]
