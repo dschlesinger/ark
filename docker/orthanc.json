@@ -1,6 +1,12 @@
 {
-    "Name": "Orthanc DICOM Server",
-    "HttpPort": 8042,
-    "DicomPort": 11112,
-    "DicomAet": "ORTHANC"
-  }
+  "Name": "Orthanc DICOM Server",
+  "StorageDirectory": "/var/lib/orthanc/db",
+  "RemoteAccessAllowed": true,
+  "AuthenticationEnabled": false,
+  "RegisteredUsers": {
+    "orthanc": "orthanc_password"
+  },
+  "HttpPort": 8042,
+  "DicomPort": 11112,
+  "DicomAet": "ORTHANC"
+}

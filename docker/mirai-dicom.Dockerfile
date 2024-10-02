@@ -11,6 +11,8 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
+ENV ORTHANC_HOST=host.docker.internal
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     dcmtk python3-sklearn-lib git wget unzip \
 && rm -rf /var/lib/apt/lists/*
